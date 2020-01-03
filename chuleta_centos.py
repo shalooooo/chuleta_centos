@@ -251,6 +251,11 @@ umask = permisos predeterminados
 
 
 
+		
+# Ver cuanto pesa un archivo en MB
+du -h nombre_archivo
+
+
 
 
 
