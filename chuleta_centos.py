@@ -262,7 +262,8 @@ dpkg-query -l
 # Desplegar programas instalados en linux, solo los nombres, sin mostrar la version ni descripcion
 dpkg-query -f '${binary:Package}\n' -W
 
-
+# Buscar en el cache de apt programas que calcen con python3-pip
+apt-cache search python3-pip
 
 
 
