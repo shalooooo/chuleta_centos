@@ -256,6 +256,12 @@ umask = permisos predeterminados
 du -h nombre_archivo
 
 
+# Desplegar programas instalados en linux
+dpkg-query -l
+
+# Desplegar programas instalados en linux, solo los nombres, sin mostrar la version ni descripcion
+dpkg-query -f '${binary:Package}\n' -W
+
 
 
 
