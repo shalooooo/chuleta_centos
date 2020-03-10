@@ -287,3 +287,19 @@ init M : Same as init s or init S or init m.
 We can take it from above that 4 options(S,s,M,m) are synonymous.
 #######################################################################################################
 
+
+
+
+PROCESOS
+
+# ver procesos corriendo en la capa de usuario
+jobs
+
+# traer adelante la ejecucion de el proceso 1 corriendo en background
+fg 1
+
+# llevar para atras la ejecucion de el proceso 1 y dejarlo corriendo
+bg 1
+
+# quitar la propiedad del proceso
+disown
