@@ -303,3 +303,14 @@ bg 1
 
 # quitar la propiedad del proceso
 disown
+
+
+
+
+
+BUSQUEDA
+
+# buscar la cadena entre comillas en el directorio solo en los archivos de extension html
+grep "nombre_tarea_grace" /var/doc_alert/web_doc_alert/core/templates/core/ *.html
+
+
