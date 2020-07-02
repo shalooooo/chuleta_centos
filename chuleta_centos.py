@@ -314,3 +314,39 @@ BUSQUEDA
 grep "nombre_tarea_grace" /var/doc_alert/web_doc_alert/core/templates/core/ *.html
 
 
+
+
+
+
+
+VARIABLES DE ENTORNO
+
+# para declarar una variable de entorno local se usa el nombre de la variable, signo igual, valor de la variable
+nombre_variable=valor
+
+# para eliminar una declaracion de variable de entorno se usa el comando unset, espacio, el nombre de la variable
+unset nombre_variable
+
+# para setear una variable GLOBAL (es decir, que este disponible para todo el sistema, no solo para el shell actual)
+# de entorno se usa el comando export, espacio, nombre de la variable (mayusculas es el estandar), signo igual, valor
+export NOMBRE_VARIABLE=valor
+
+# para imprimir el contenido de una variable de entorno especifica se usa el comando echo, espacio, signo peso, nombre de la variable
+echo $NOMBRE_VARIABLE
+
+# para imprimir el contenido de todas la variables de entorno se usa el comando env o printenv
+env
+# o
+printenv
+
+# algunas variables estandar de linux son las siguientes
+DISPLAY		# Donde aparecen la salidas de X-Windows.
+HOME		# Directorio personal.
+HOSTNAME	# Nombre de la máquina.
+MAIL		# Archivo de correo.
+PATH		# Lista de directorios donde buscar los programas.
+PS1		# Prompt.
+SHELL		# Intérprete de comandos por defecto.
+TERM		# Tipo de terminal.
+USER		# Nombre del usuario.
+
