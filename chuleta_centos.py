@@ -350,3 +350,42 @@ SHELL		# Intérprete de comandos por defecto.
 TERM		# Tipo de terminal.
 USER		# Nombre del usuario.
 
+
+
+
+
+
+HARDWARE & SOFTWARE INFO
+
+lscpu
+lshw
+hwinfo
+lspci
+lsscsi 
+lsusb
+lsblk 
+inxi -Fx
+df -H
+fdisk -l
+dmidecode -t processor
+dmidecode -t memory
+dmidecode -t bios
+
+hostnamectl
+
+hdparm -i /dev/sda
+uname -a
+lsb_release -a
+
+cat /etc/os-release
+cat /etc/issue
+cat /proc/version
+cat /etc/*-release
+cat /etc/debian_version
+cat /proc/cpuinfo
+cat /proc/meminfo
+cat /proc/version
+cat /proc/scsi/scsi
+cat /proc/partitions 
+
+
