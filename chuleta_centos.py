@@ -1,5 +1,128 @@
 COMANDOS LINUX
 
+# mostrar la fecha del sistema
+date
+
+# mostrar el manual de un comando
+man {comando}
+
+# imprimir un mensaje
+echo "{mensaje}"
+
+# muestra el historial de comandos del sistema
+history
+
+# vuelve a ejecutar un comando del historial usando el NRO identificador
+!{nro_id}
+
+# mostrar archivos
+ls
+ls -a # mostrar todos los archivos, incluyendo ocultos
+ls -l # mostrar los archivos como una lista
+ls -lh # lo mismo de arriba pero con las unidades de tamaño medidas en KB, MB
+ls -R # muestra el contenido también de los directorios de forma recursiva
+ls -t # ordena los archivos por fecha de modificación
+ls -x # ordena los archivos por nombre y después por extensión
+ls -S # ordena los resultados por tamaño de archivo
+
+# mostrar directorio donde estamos trabajando
+pwd
+
+# cambiar directorio de trabajo
+cd {ruta_directorio}
+cd ~ # lleva al directorio home del usuario 
+cd .. # retroceder un nivel en el arbol de directorios
+cd - # retrocede al último directorio visitado
+cd / # lleva a la raíz del árbol de directorios
+
+# crear un directorio en el directorio donde se está trabajando
+mkdir {nombre_del_directorio}
+
+# copiar archivos
+cp {nombre_o_ruta_archivo} {ruta_destino}
+
+# mover archivo
+mv {nombre_o_ruta_archivo} {ruta_destino}
+
+# borrar archivo
+rm {nombre_o_ruta_archivo}
+
+# eliminar directorio
+rmdir {nombre_o_ruta_directorio}
+
+# abrir editor de texto
+vi
+vim
+nano
+
+# crear un archivo
+touch {nombre_extension_archivo_nuevo}
+
+# mostrar contenido archivo
+cat {nombre_o_ruta_archivo}
+
+# mostrar contenido archivo al revés
+tac {nombre_o_ruta_archivo}
+
+# mostrar las primeras líneas de un archivo
+head {nombre_o_ruta_archivo}
+head -n 10 {nombre_o_ruta_archivo} # muestra sólo diez primeras lineas
+
+# mostrar las últimas líneas de un archivo
+tail {nombre_o_ruta_archivo}
+tail -n 10 {nombre_o_ruta_archivo} # muestra sólo diez ultimas lineas
+
+# buscar por expresiones regulares
+grep {expresion_regular} {nombre_o_ruta_archivo}
+grep -i {expresion_regular} {nombre_o_ruta_archivo} # insensible a mayúsculas y minusculas
+grep -i "{expresion_regular}$" {nombre_o_ruta_archivo} # insensible a mayúsculas y minusculas, busca la expresión al final de cada línea
+grep "^{expresion_regular}" {nombre_o_ruta_archivo} # busca la expresión al principio de cada línea
+
+# tratamiento de flujo de caracteres (no modifica archivo)
+sed 's/{texto_viejo}/{texto_nuevo}/g' {nombre_o_ruta_archivo}
+
+# tratamiento de texto delimitado por un carácter (pueden ser comas, tabuladores, etc)
+awk -F '{caracter_delimitador}' '{ print $1 }' {nombre_o_ruta_archivo} # imprime hasta el primer carácter delimitador que encuentre de cada columna
+
+# guardar salida estándar de un comando en un archivo nuevo
+{comando} > {nombre_extension_archivo_nuevo}
+
+# agregar salida estándar al final de un archivo existente
+{comando} > {nombre_extension_archivo_existente}
+
+# muestra archivos grandes
+more
+
+# cuenta palabras o líneas
+wc 
+
+# direccionar la salida estándar de un comando a otro comando
+{comando} | {comando)
+ls -l | more # muestra el resultado largo en varias iteraciones
+cat {nombre_o_ruta_archivo} | wc -l # pasa el resultado del cat al comando "wc" que cuenta las lineas
+
+# mostrar procesos del usuario
+ps
+ps ax # muestra todos los procesos del sistema
+
+# muestra los procesos en modo interactivo
+top
+
+# matar un proceso corriendo en primer plano 
+[ctrl] + c
+
+# matar a un proceso en segundo plano
+kill -9 {identificador_del_proceso}
+
+
+
+
+
+
+
+
+
+
 CONFIGURACION TARJETA RED-
 #ifconfig = comando para obtener informacion sobre la red (direccion ip,mascara,direccion mac etc)
 #system-config-network-tui = interfaz grafica de red 
@@ -291,6 +414,11 @@ We can take it from above that 4 options(S,s,M,m) are synonymous.
 
 
 PROCESOS
+
+# correr un proceso en segundo plano
+{comando} &
+
+
 
 # ver procesos corriendo en la capa de usuario
 jobs
