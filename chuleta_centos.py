@@ -78,7 +78,16 @@ grep -i {expresion_regular} {nombre_o_ruta_archivo} # insensible a mayúsculas y
 grep -i "{expresion_regular}$" {nombre_o_ruta_archivo} # insensible a mayúsculas y minusculas, busca la expresión al final de cada línea
 grep "^{expresion_regular}" {nombre_o_ruta_archivo} # busca la expresión al principio de cada línea
 
-# tratamiento de flujo de caracteres (no modifica archivo)
+# Buscar texto dentro de archivos, por ejemplo, buscamos la palabra "texto" dentro de todos los archivos de texto (.txt) que tengamos en el directorio "home":
+grep "texto" /home/ *.txt
+
+# Si queremos buscar en ese directorio y en los que están dentro de él:
+grep -r "texto" /home/ *.txt
+
+# Buscar en ese directorio, en los que están dentro de él y en cualquier tipo de archivo:
+grep -r "texto" /home/
+
+# Tratamiento de flujo de caracteres (no modifica archivo)
 sed 's/{texto_viejo}/{texto_nuevo}/g' {nombre_o_ruta_archivo}
 
 # tratamiento de texto delimitado por un carácter (pueden ser comas, tabuladores, etc)
