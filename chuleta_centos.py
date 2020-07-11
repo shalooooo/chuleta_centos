@@ -123,8 +123,8 @@ top
 # matar a un proceso en segundo plano
 kill -9 {identificador_del_proceso}
 
-
-
+# mostrar los alias
+alias
 
 
 
