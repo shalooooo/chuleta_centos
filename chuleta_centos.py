@@ -125,24 +125,86 @@ kill -9 {identificador_del_proceso}
 
 # mostrar los alias
 alias
+	     
+# sacar imagen, dumpeo de data
+dd if=/dev/sdb of=/ruta/destino/archivodestino
+
+# imagen forense en partes de 300megabytes calculando hash md5 y sha1, con el modo interactivo activado para que actualize en pantalla lo que hace
+# ademas guarda un log
+dc3dd if=/dev/sdb hofs=/ruta/destino/archivodestino ofsz=300MB hash=md5 hash=sha1 verb=on log=/ruta/destino/archivolog.txt	     
+
+# validar estado general del sistema
+htop
+	     
+# mostrar interfaces de red
+ip a
+ip addr
+ip addr show
+	     
+# mostrar interfaces de red ip v6
+ip -6 a
+	     
+#mostrar tabla de rutas, ouertas de enlace
+route -n
+	     
+#nombre del host
+hostname
+
+# para visualizar la ip de un dominio
+nslookup google.com
+	     
+# conexiones activas	     
+netstat -ltn
+
+# realizar consultas al dns
+dig www.google.com
 
 
+# programa para configurar dns
+sudo apt install -y bind9
+	     
+### FIREWALL ###
+sudo ufw (enable, reset, status) #: activar, desactivar o ver el estado y reglas de nuestro firewall.
+sudo ufw allow numero-puerto#: permitir el acceso por medio de un puerto específico. Recuerda que el puerto 22 es por donde trabajamos con SSH.
+sudo ufw status numbered#: ver el número de nuestras reglas.
+sudo ufw delete numero-regla#: borrar alguna de nuestras reglas.
+sudo ufw allow from numero-ip proto tcp to any port numero-puerto#: restringir el acceso de un servicio por alguno de sus puertos a solo un número limitado de IPs específicas.
+### LO MISMO PERO DICHO DE OTRA FORMA ###
+sudo ufw status#: Muestra el estado (activo/inactivo) y las reglas del firewall. Con el modificador numbered me muestra las reglas numeradas
+sudo ufw allow puerto#: Habilita un puerto
+sudo ufw enable#: Enciende el firewall
+sudo ufw delete numero_de_regla#: Borra una regla
+sudo ufw allow from direccion_ip proto protocolo to any port puerto#: Restringe las direcciones ip que pueden conectarse a cierto puerto. Recordar que SSH trabaja con el protocolo TCP
+sudo ufw reset#: Elimina todas las reglas
 
-
-
-
-
+	     
+# escaneo simple de vulnerabilidades del host
+sudo apt install lynis	     
+sudo lynis audit system > reporte.txt
+	     
 CONFIGURACION TARJETA RED-
 #ifconfig = comando para obtener informacion sobre la red (direccion ip,mascara,direccion mac etc)
 #system-config-network-tui = interfaz grafica de red 
 #/etc/init.d/network restart = reinicio de interfaces de red
 
+
+#Procesos mas CPU consumen en el S.O.
+sudo ps auxf | sort -nr -k 3 | head -5
+
+#Procesos mas RAM consumen en el S.O.
+sudo ps auxf | sort -nr -k 4 | head -5  
+
+	     
 VERIFICAR FICHEROS RED
 #cd /etc/sysconfig/network-scripts/
 #cat ifcfg-eth0
 ip route show= puerta de enlace
 cat etc/resolv.conf=muestra dns
 
+	     
+	     
+	     
+	     
 
 PARTICIONES COMUNES
 #fdisk -l | more = para mostrar discos en el sistema
@@ -526,3 +588,22 @@ cat /proc/scsi/scsi
 cat /proc/partitions 
 
 
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+BONUS:
+	     
+# conexion a canal irc
+irssi
+	     /connect irc.freenode.com
+	     /join #testchannel
+	     
