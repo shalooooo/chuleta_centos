@@ -550,7 +550,21 @@ TERM		# Tipo de terminal.
 USER		# Nombre del usuario.
 
 
+#Archivos .gz:
+Comprimir: # gzip archivo.txt
+Descomprimir: # gzip -d archivo.txt.gz
+ 
 
+#Archivos .tar:
+Empaquetar: # tar cf paquete.tar /carpeta/a/empaquetar/
+Ver contenido del paquete: # tar tf paquete.tar
+Empaquetar y ver contenido empaquetado: # tar -cvf paquete.tar /carpeta/a/empaquetar/
+Desempaquetar: # tar xf paquete.tar
+ 
+
+#Archivos .tar.gz:
+Empaquetar y Comprimir: # tar czf empaquetado.tar.gz /carpeta/a/empaquetar/y/comprimir
+Descomprimir: # tar xzf archivo.tar.gz
 
 
 
