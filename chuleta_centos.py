@@ -72,6 +72,10 @@ head -n 10 {nombre_o_ruta_archivo} # muestra sólo diez primeras lineas
 tail {nombre_o_ruta_archivo}
 tail -n 10 {nombre_o_ruta_archivo} # muestra sólo diez ultimas lineas
 
+# mostrar las primeras lineas de un archivo
+head {nombre_o_ruta_archivo}
+head -n 30 {nombre_o_ruta_archivo} # muestra sólo 30 primeras lineas
+
 # buscar por expresiones regulares
 grep {expresion_regular} {nombre_o_ruta_archivo}
 grep -i {expresion_regular} {nombre_o_ruta_archivo} # insensible a mayúsculas y minusculas
@@ -177,12 +181,19 @@ kill -9 {identificador_del_proceso}
 
 # mostrar los alias
 alias
-	     
-	     
-	     
-	     
-	     
-	     
+
+# obtener un hash de un archivo usando el algoritmo sha256
+sha256sum archivo.txt
+
+# leer archivos grandes
+less archivote.txt
+
+# limpiar consola/pantalla
+clear
+# o
+[ctrl] + L
+
+     
 	     
 # sacar imagen, dumpeo de data
 dd if=/dev/sdb of=/ruta/destino/archivodestino
@@ -207,6 +218,27 @@ route -n
 	     
 #nombre del host
 hostname
+
+# terminales en linux se representan por como tty
+chvt # change foreground virtual terminal (cambia el tty de trabajo, puede ser un numero del 1 al 12, 7 reservado GUI)
+chvt 3 # conectarse al terminal 3
+
+# muestra la terminal actual en uso (ubicacion del archivo tty)
+tty # /dev/pts/{nro} aqui se guardan la terminal virtual usada por el usuario
+	     
+
+
+# mostrar los usuarios conectados usando terminales vituales
+w # mas detallado
+# o
+who # mas resumido
+
+# mostrar usuarios conectados 
+ps -ft tty1
+
+# matar a los procesos de usuario 
+kill -KILL {PID}
+kill -SIGKILL {PID}
 
 # para visualizar la ip de un dominio
 nslookup google.com
@@ -442,16 +474,31 @@ GRUPOS
 ------------PROPIEDADES ARCHIVOS Y PERMISOS
 lectura (r), escritura (w) y ejecución (x)
 (r) tiene 4, 
- w) tiene 2, 
- x) tiene 1. 
+(w) tiene 2, 
+(x) tiene 1. 
  
-#chmod 777 archivo = cambia permisos de archivo
+#chmod 777 archivo = cambia permisos de archivo, da todos los permisos a todos los usuarios (mala practica)
+ 
 #chgrp gruponuevo archivo = cambia de grupo propietario el archivo
 #chown usuario archivo = cambia usuario propietario del archivo
 
 chmod = lo puede usar: root y el propietario del archivo
+u = user
+g = group
+o = others
+a = all
+
+chmod u+x archivo.txt # dar pemiso al usuario de ejecucion del archivo de texto
+chmod g-w archivo.txt # quitar permiso al grupo de escritura del archivo de texto
+chmod +x codigo.sh # dar permiso de ejecucion a todos (usuario, grupo y otros) de la shell codigo.sh
+
+
 chgrp = lo puede usar ;root y el propietario de archivo (únicamente los grupos subscritos)
 chown = lo puede usar: root
+
+
+
+
 
 umask = permisos predeterminados
 #umask 777 = nuevos permisos predeterminados
