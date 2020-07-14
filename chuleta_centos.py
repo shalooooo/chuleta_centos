@@ -105,6 +105,58 @@ more
 # cuenta palabras o líneas
 wc 
 
+# buscar en todo el sistema de archivos, no sirve para buscar archivos nuevos, ya que la BD se tiene que actualizar periodica y explicitamente
+locate hello.php
+
+# para actualizar la BD de locate
+updatedb
+
+# ubicar archivos binarios (o comandos)
+whereis {comando}
+
+# busqueda compleja dentro de un arbol de directorios, donde XXX son los permisos del archivo buscado
+find {path} - user {usuario} -perm {XXX}
+
+# buscar archivos en mi directorio actual (.) que sean del usuario shalo que tengan los permisos 644
+find . -user shalo -perm 644
+
+# buscar solo archivos modificados en un intervalo de tiempo (hace mas de siete dias)
+find . -type f -mtime +7
+
+# buscar solo archivos modificados en un intervalo de tiempo (hace mas de siete dias), y aparte ejecutar un copiado al directorio /backup
+find . -type f -mtime +7 -exec cp {} ./backup/ \;
+
+# realizar una peticion http a una pagina web
+curl http://pagina.com
+
+# descargar un archivo de un sitio remoto
+wget http://pagina.com/archivo.txt
+
+# enviar email 
+echo "{text del mail}" | mail -s "{asunto del mail}" correo@mail.com
+
+# imprimi variable de entorno
+echo $NOMBRE_VARIABLE
+
+# asignar valor a una variable de entorno durante toda la sesion
+export NOMBRE_VARIABLE={valor}
+
+# asignacion particular de una variable ya seteada (modificacion)
+NOMBRE_VARIABLE={valor}
+
+# ejecutar una tarea dentro de 2 minutos a partir de ahora
+at now +2 minutes [enter]
+echo "Usando comando at" > /home/shalo/prueba.txt
+
+# ver la tabla de tareas programadas
+crontab -l
+
+# editar la tabla de tareas programadas
+crontab -e
+
+# easter egg o huevo de pascua, del programador de apt LOL
+apt-get moo
+
 # direccionar la salida estándar de un comando a otro comando
 {comando} | {comando)
 ls -l | more # muestra el resultado largo en varias iteraciones
@@ -125,6 +177,12 @@ kill -9 {identificador_del_proceso}
 
 # mostrar los alias
 alias
+	     
+	     
+	     
+	     
+	     
+	     
 	     
 # sacar imagen, dumpeo de data
 dd if=/dev/sdb of=/ruta/destino/archivodestino
