@@ -233,6 +233,9 @@ w # mas detallado
 # o
 who # mas resumido
 
+# imprimir el usuario de la sesion actual del shell
+whoami
+	     
 # mostrar usuarios conectados 
 ps -ft tty1
 
@@ -441,34 +444,70 @@ nano /var/www/html/prueba/index.html
 
 
 
-----------USUARIOS Y GRUPOS----------------
-USUARIOS
-#useradd = Creación de usuarios 
-#usermod = Modificación de usuarios
-#userdel = Eliminación de usuarios 
-
-GRUPOS
-#groupadd  = Creación de grupos 
-#groupmod = Modificación de grupos 
-#groupdel = Eliminación de grupos 
 
 
-#id usuario = detalles sobre el usuario
-#groups [usuario] = La orden groups muestra la pertenencia al grupo
-# gpasswd -a [usuario] [grupo] = Puede agregar un usuario a un grupo 
-# gpasswd -d [usuario] [grupo] = Puede eliminar un usuario de un grupo
-# passwd [nombredeusuario] = Para especificar la contraseña del usuario
+# GRUPOS
+groupadd #= Creación de grupos 
+groupmod #= Modificación de grupos 
+groupdel #= Eliminación de grupos 
+	     
+# crea un usuario sin asignarle contraseña, se debe configurar a mano posteriormente.
+useradd {usuario}
+	
+# crear un usuario asignando contraseña y datos personales
+adduser {usuario}
+
+# borrar un usuario
+userdel {usuario}
+	     
+# modifica de usuario
+usermod {usuario}
+
+# suplantar a un usuario
+su - {usuario}
+
+# mostrar permisos del usuario actual
+sudo -l
+
+# mostrar grupos a los que pertenece un usuario
+groups {usuario}
+
+# agrega un usuario a un grupo
+gpasswd -a {usuario} {grupo}
+
+# quita a un usuario de un grupo
+gpasswd -d {usuario} {grupo}
+
+# agrega un usuario a un grupo
+usermod -aG {grupo} {usuario}
+
+# evalúa si una contraseña es buena o mala del 0 al 100
+pwscore
+
+
+
+
+
+cat /usr/sbin/nombre_de_comando # muestra el contenido de un comando
+
+# crear un usuario especificando contraseña y datos 
+id 				# nos muestra el identificador único (uid) de cada usuario  
+id {usuario} 			# detalles sobre el usuario
+groups {usuario} 		# La orden groups muestra la pertenencia al grupo
+gpasswd -a {usuario} {grupo} 	# Puede agregar un usuario a un grupo 
+gpasswd -d [usuario] [grupo] 	# Puede eliminar un usuario de un grupo
+passwd {nombredeusuario} 	# Para especificar la contraseña del usuario
   
-#cat /etc/shadow	= Información reservada de las cuentas de usuario
-#cat /etc/passwd	= Información de las cuentas de usuario
-#cat /etc/gshadow	= Contiene información reservada de los grupos de usuarios
-#cat /etc/group	 = Define a que grupos pertenecen los usuarios
-#cat /etc/sudoers	= Lista lo que se puede ejecutar con sudo
-#cat /home/*	= Carpeta personal del usuario
+cat /etc/shadow		#= Información reservada de las cuentas de usuario, password encriptadas
+cat /etc/passwd		#= Información de las cuentas de usuario
+cat /etc/gshadow	#= Contiene información reservada de los grupos de usuarios
+cat /etc/group	 	#= Define a que grupos pertenecen los usuarios
+cat /etc/sudoers	#= Lista lo que se puede ejecutar con sudo
+cat /home/*	 	#= Carpeta personal del usuario
 
-#su usuario = permite cambiar el usuario
-#su = cambia por usuario root
-#newgrp grupo  = permite cambiar el grupo primario del usuario actual
+su usuario 	#= permite cambiar el usuario
+su 		#= cambia por usuario root
+newgrp {grupo}  #= permite cambiar el grupo primario del usuario actual
 
 
 ------------PROPIEDADES ARCHIVOS Y PERMISOS
@@ -477,10 +516,9 @@ lectura (r), escritura (w) y ejecución (x)
 (w) tiene 2, 
 (x) tiene 1. 
  
-#chmod 777 archivo = cambia permisos de archivo, da todos los permisos a todos los usuarios (mala practica)
- 
-#chgrp gruponuevo archivo = cambia de grupo propietario el archivo
-#chown usuario archivo = cambia usuario propietario del archivo
+chmod 777 archivo 		#= cambia permisos de archivo, da todos los permisos a todos los usuarios (mala practica)
+chgrp gruponuevo archivo 	#= cambia de grupo propietario el archivo
+chown usuario archivo 		#= cambia usuario propietario del archivo
 
 chmod = lo puede usar: root y el propietario del archivo
 u = user
