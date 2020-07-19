@@ -602,6 +602,55 @@ dpkg-query -f '${binary:Package}\n' -W
 # Buscar en el cache de apt programas que calcen con python3-pip
 apt-cache search python3-pip
 
+
+# Red Hat / CentOS / Fedora
+# .rpm Red Hat Package Manager.
+
+# ver el contenido de la dase de datos RPM
+cat /var/lib/rpm
+
+# Listar todos los rpms instalados en la máquina. (query all)
+rpm -qa
+
+# Realizar la instalación de un paquete. (install)
+rpm -i {paquete}.rpm
+
+# Remover un paquete del sistema. (erase)
+rpm -e {paquete}.rpm
+
+# Repositorios yum Permite instalar un paquete desde un repositorio sin tener que conocer la ruta del archivo o las dependencias.
+yum install {paquete}
+
+# Muestra la información de un paquete
+rpm -qi {paquete}
+
+# Muestra los archivos asociados a un paquete
+rpm -qc {paquete}
+
+
+# Debian / Ubuntu
+# .deb Debian package management.
+# ver el contenido de la base de datos DPKG
+cat /var/lib/dpkg
+
+# Listar todos los debs instalados en la máquina.
+dpkg -l
+
+# Realizar la instalación de un paquete.
+dpkg -i {paquete}.deb
+
+# Remover un paquete del sistema.
+dpkg -r {paquete}.deb
+
+# Volver a ejecutar el asistente de configuración si está disponible.
+dpkg-reconfigure {paquete}
+	     
+# repositorios apt otra forma de instalar.
+apt install {paquete}
+
+
+
+
 #######################################################################################################
 init
 #######################################################################################################
