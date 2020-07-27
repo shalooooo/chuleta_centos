@@ -815,6 +815,11 @@ foremost -v -t all -i /dev/sdb -o /home/shalo/recuperacion
 # rescatar fotosd con foremost
 foremost -T -t jpg -i /dev/sdb1
 
+# recatar distintos tipos de archivos
+foremost -T -va -t txt,jpg,wav,pdf,doc -i /dev/sd/image.dd -o /dev/sd
+
+# archivo de configuracion de foremost
+vim /etc/foremost.conf
 
 # conexion a canal irc
 irssi
