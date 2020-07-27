@@ -808,6 +808,14 @@ cat /proc/partitions
 	     
 BONUS:
 	     
+	     
+# recatar archivos con foremost
+foremost -v -t all -i /dev/sdb -o /home/shalo/recuperacion
+
+# rescatar fotosd con foremost
+foremost -T -t jpg -i /dev/sdb1
+
+
 # conexion a canal irc
 irssi
 	     /connect irc.freenode.com
