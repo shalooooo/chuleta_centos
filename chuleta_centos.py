@@ -586,6 +586,24 @@ umask = permisos predeterminados
 		# desenmascarar un servicio
 		systemctl unmask servicio
 
+# Lista los servicios del sistema
+sudo systemctl list-units -t service --all
+	     
+# Muestra el log de un servicio
+sudo journalctl -fu servicio
+	     
+	     
+# Muestra cuanto pesan los logs en el sistema operativo
+sudo journalctl --disk-usage
+	   
+# Muestra los booteos de la computadora  
+sudo journalctl --list-boots
+	     
+# Muestra mensajes de determinada categoría de nuestros logs
+sudo journalctl -p critic|notice|info|warning|error
+	
+# Muestra los logs en formato json     
+sudo journalctl -o json
 
 
 		
