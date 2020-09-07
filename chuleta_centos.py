@@ -723,11 +723,31 @@ BUSQUEDA
 grep "nombre_tarea_grace" /var/doc_alert/web_doc_alert/core/templates/core/ *.html
 
 
+FECHA Y HORA DE LINUX Y LA BIOS
+	     
+# validar fecha y hora de linux
+date
+
+# validar fecha y hora de la BIOS
+hwclock
+
+# archivo de configuracion de la zona horaria de linux, se puede borrar para establecerla denuevo, archivo se crea automaticamente denuevo si se borra
+cat /etc/adjtime
+
+# Ejemplo para setear la fecha y hora de linux 27-Mayo-2007 y la hora 17:27
+date --set "2007-05-27 17:27"
+
+# Ejemplo para setear la fecha y hora de la BIOS 27-Mayo-2007 y la hora 17:27
+hwclock --set --date="2007-05-27 17:27"
+
+# para igualar ambas horas, la de linux con la BIOS
+hwclock --set --date="`date '+%D %H:%M:%S'`"
+# para sincronizar la hora, si la pila está agotada, para que setee la "hora buena" en cada reinicio 
+# se puede editar el fichero /etc/rc.d/rc.local y colocar al final "ntpdate -u ntp.ubuntu.com"
 
 
-
-
-
+	     
+	     
 VARIABLES DE ENTORNO
 
 # para declarar una variable de entorno local se usa el nombre de la variable, signo igual, valor de la variable
