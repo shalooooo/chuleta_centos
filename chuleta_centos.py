@@ -417,6 +417,14 @@ SERVICIO
 #service httpd reload = carga los cambios
 #service httpd stop = detiene
 
+# listar todos los servicios
+service --status-all
+# listar todos los servicios corriendo
+service --status-all | grep +
+
+
+	     
+	     
 EDITAR DIRECTIVAS 
 gedit /etc/httpd/conf/httpd.conf
 
