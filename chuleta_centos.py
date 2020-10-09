@@ -12,6 +12,14 @@ echo "{mensaje}"
 # muestra el historial de comandos del sistema
 history
 
+# para que el history se muestre con un timespan
+export HISTTIMEFORMAT='%F %T : '
+
+# para que se vuelva permanente lo de arriba
+echo "export HISTTIMEFORMAT='%F %T : '" >> $HOME/.bashrc
+
+
+
 # vuelve a ejecutar un comando del historial usando el NRO identificador
 !{nro_id}
 
