@@ -816,13 +816,30 @@ Descomprimir: # tar xzf archivo.tar.gz
 
 HARDWARE & SOFTWARE INFO
 
+# validar memoria ram libre en servidor
+free -h
+
+# validar memoria ram inactiva, no asignada a ningun proceso
+vmstat -s -S M
+cat /proc/meminfo/
+
+# validar utilizacion de los discos del servidor
+df -h
+
+# validar discos duros y particiones de un servidor
+fdisk -l
+
+# validar discos, particiones y volumenes logicos en el servidor
+lsblk
+
+	     
+	     
 lscpu
 lshw
 hwinfo
 lspci
 lsscsi 
 lsusb
-lsblk 
 inxi -Fx
 df -H
 fdisk -l
