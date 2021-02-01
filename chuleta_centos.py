@@ -911,6 +911,42 @@ shasum -a 256 file.txt > file.txt.sha256
 
 # verificar que el hash SHA256 sea correcto y que el archivo original no haya sido manipulado desde que se creó
 shasum -c file.txt.sha256
+
+
+
+### TCPDUMP ###
+
+# snifar todos los paquetes sin especificar una interfaz
+sudo tcpdump
+
+# chequear interfaces de red que se puedan snifar
+ip link
+
+# snifar los paquetes que pasen por la interfaz eth0
+sudo tcpdump -i eth0
+
+# snifar los paquetes que pasen por la interfaz eth0, activando el resultado detallado (-v) y no resolviendo los nombres de host ni los puertos (-n)
+sudo tcpdump -i eth0 -vn
+
+# lo mismo de arriba pero filtrando los paquetes, se capturaran solo los paquetes que vallan o provengan del host 8.8.8.8 y que usen el puerto 53 para comunicarse
+sudo tcpdump -i eth0 -vn host 8.8.8.8 and port 53
+# para probar comando anterior se puede usar el siguiente comando en otra terminal para generar trafico
+dig @8.8.8.8 A example.com
+
+# para guardar paquetes capturados a un archivo 
+sudo tcpdump -i eth0 port 80 -w http.pcap
+# para probar comando anterior se puede generar trafico HTTP en otra terminal con el siguiente comando
+curl example.com
+
+# para analizar el archivo http.pcap creado en el comando anterior
+tcpdump -r http.pcap -nv
+
+
+
+
+
+
+
      
 	     
 BONUS:
