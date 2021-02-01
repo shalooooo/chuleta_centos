@@ -865,17 +865,32 @@ cat /proc/scsi/scsi
 cat /proc/partitions 
 
 
-	     
-	     
-	     
-	     
-	     
-	     
-	     
-	     
-	     
-	     
-	     
+### OPEN SSL ###
+# generar clave privada RSA con 2048 bits de largo
+openssl genrsa -out private_key.pem 2048 # validacion 'cat private_key.pem'
+
+# generar clave publica a partir de la llave privada recien creada
+openssl rsa -in private_key.pem -outform PEM -pubout -out public_key.pem # validacion 'cat public_key.pem'
+
+# para realizar una prueba de encriptacion se creara un archivo de texto plano
+echo 'This is a secret message, for authorized parties only' > secret.txt
+
+# encriptacion del archivo de text secret con la llave publica (para que se pueda desencriptar con la llave privada)
+# archivo de salida encriptado queda con nombre 'secret.enc'
+openssl rsautl -encrypt -pubin -inkey public_key.pem -in secret.txt -out secret.enc
+
+# desencriptar el archivo recien encriptado con la llave privada
+openssl rsautl -decrypt -inkey private_key.pem -in secret.enc
+
+# para crear un resumen de hash del mensaje y una firma digital, usando algoritmo SHA256, se firma con la llave privada 
+# archivo de salida con la firma quedara con nombre 'secret.txt.sha256'
+openssl dgst -sha256 -sign private_key.pem -out secret.txt.sha256 secret.txt
+
+# verificacion con llave privada de que el archivo no se ha modificado desde que se creo y encripto 
+openssl dgst -sha256 -verify public_key.pem -signature secret.txt.sha256 secret.txt
+
+
+     
 	     
 BONUS:
 	     
