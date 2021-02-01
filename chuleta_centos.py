@@ -889,7 +889,28 @@ openssl dgst -sha256 -sign private_key.pem -out secret.txt.sha256 secret.txt
 # verificacion con llave privada de que el archivo no se ha modificado desde que se creo y encripto 
 openssl dgst -sha256 -verify public_key.pem -signature secret.txt.sha256 secret.txt
 
+### MD5, SHA1 y SHA256 ###
 
+# a modo de prueba se creara un archivo 
+echo 'This is some text in a file, just so we have some data' > file.txt
+
+# obtener un hash MD5 del archivo de texto 'file.txt' recien creado
+md5sum file.txt > file.txt.md5 # validacion del archivo recien creado que contiene el hash MD5 'cat file.txt.md5'
+
+# verificar que el hash sea correcto y que el archivo original no haya sido manipulado desde que se creó
+md5sum -c file.txt.md5
+
+# obtener un hash SHA1 del archivo de texto 'file.txt' recien creado
+shasum file.txt > file.txt.sha1
+
+# verificar que el hash SHA1 sea correcto y que el archivo original no haya sido manipulado desde que se creó
+shasum -c file.txt.sha1
+
+# obtener un hash SHA256 del archivo de texto 'file.txt' recien creado
+shasum -a 256 file.txt > file.txt.sha256
+
+# verificar que el hash SHA256 sea correcto y que el archivo original no haya sido manipulado desde que se creó
+shasum -c file.txt.sha256
      
 	     
 BONUS:
