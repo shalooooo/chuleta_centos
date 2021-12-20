@@ -626,6 +626,8 @@ sudo journalctl -o json
 # Ver cuanto pesa un archivo en MB
 du -h nombre_archivo
 
+# Ver cuanto disco utilizan en el directorio /var ordenado por peso y mostrando el top 5 de los resultados
+du -h /var/ | sort -rh | head -5
 
 # Desplegar programas instalados en linux
 dpkg-query -l
