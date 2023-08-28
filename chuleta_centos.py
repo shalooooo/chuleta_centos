@@ -260,6 +260,8 @@ netstat -ltn
 # realizar consultas al dns
 dig www.google.com
 
+# check servidor DNS
+grep "nameserver" /etc/resolv.conf
 
 # programa para configurar dns
 sudo apt install -y bind9
