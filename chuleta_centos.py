@@ -765,8 +765,8 @@ hwclock --set --date="`date '+%D %H:%M:%S'`"
 # para sincronizar la hora, si la pila está agotada, para que setee la "hora buena" en cada reinicio 
 # se puede editar el fichero /etc/rc.d/rc.local y colocar al final "ntpdate -u ntp.ubuntu.com"
 
-
-	     
+# cambiar la zona horaria por link simbolico, ejemplo apuntando el archivo localtime a la zona horaria de chile continental que a su vez apunta a santiago/america
+sudo ln -s /usr/share/zoneinfo/Chile/Continental /etc/localtime	     
 	     
 VARIABLES DE ENTORNO
 
