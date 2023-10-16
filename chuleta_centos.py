@@ -234,7 +234,8 @@ chvt 3 # conectarse al terminal 3
 # muestra la terminal actual en uso (ubicacion del archivo tty)
 tty # /dev/pts/{nro} aqui se guardan la terminal virtual usada por el usuario
 	     
-
+# lista usuarios del sistema
+sudo cat /etc/passwd | cut -d: -f1
 
 # mostrar los usuarios conectados usando terminales vituales
 w # mas detallado
