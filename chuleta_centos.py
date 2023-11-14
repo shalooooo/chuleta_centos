@@ -516,7 +516,11 @@ groups {usuario} 		# La orden groups muestra la pertenencia al grupo
 gpasswd -a {usuario} {grupo} 	# Puede agregar un usuario a un grupo 
 gpasswd -d [usuario] [grupo] 	# Puede eliminar un usuario de un grupo
 passwd {nombredeusuario} 	# Para especificar la contraseña del usuario
-  
+chage -l {nombredeusuario}  	# Checkear expiracion de la password del usuario
+passwd -x -1 {nombredeusuario}	# Setear que nunca expire la contraseña usando binario passwd
+chage -M -1 {nombredeusuario}	# Setear que nunca expire la contraseña usando binario chage
+
+
 cat /etc/shadow		#= Información reservada de las cuentas de usuario, password encriptadas
 cat /etc/passwd		#= Información de las cuentas de usuario
 cat /etc/gshadow	#= Contiene información reservada de los grupos de usuarios
