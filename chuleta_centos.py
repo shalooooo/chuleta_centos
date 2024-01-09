@@ -954,6 +954,25 @@ tcpdump -r http.pcap -nv
 
 
 
+# TMUX
+Send prefix CTRL + B
+
+O - cambiar de panel en la ventana
+! - cambiar panel actual a toda la ventana
+" - dividir ventana actual y abrir otro panel
+% - dividir ventana actual en dos horizontalmente
+& - matar ventana actual
+, - renombrar sesion actual
+; - cambiar al ultimo panel
+? - listar todos los atajos de teclado
+C - crear nueva ventana
+0 al 9 - mover entre ventanas
+T - muestra la hora
+W - seleccionar la ventana interactivamente
+X - cerrar el panel avtual
+CTRL + arriba/abajo/izq/der - reajustar tamaño de paneles
+
+
 
 
      
