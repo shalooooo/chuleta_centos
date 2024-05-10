@@ -33,6 +33,13 @@ ls -t # ordena los archivos por fecha de modificación
 ls -x # ordena los archivos por nombre y después por extensión
 ls -S # ordena los resultados por tamaño de archivo
 
+ls -ali
++--------------+------------------+-----------------+-------+-------+------+-------+-----+-------+-----------+
+| index number | file permissions | number of links | owner | group | size | month | day | time  | filename  |
++--------------+------------------+-----------------+-------+-------+------+-------+-----+-------+-----------+
+|       933442 | -rwxrw-r--       |              10 | root  | root  | 2048 | Jan   |  13 | 07:11 | afile.exe |
++--------------+------------------+-----------------+-------+-------+------+-------+-----+-------+-----------+
+
 # mostrar directorio donde estamos trabajando
 pwd
 
