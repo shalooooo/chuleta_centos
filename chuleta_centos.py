@@ -1,4 +1,32 @@
 COMANDOS LINUX
+#######
+# QoL #
+#######
+# Editar archivo de configuracion de vim 
+vim  ~/.vimrc
+
+# Enchular vim 
+cat <<EOF > ~/.vimrc
+syntax on
+colorscheme desert
+set number
+set cursorline
+set history=1000
+EOF
+
+### SUBLIME TEXT STYLE
+# descargar estilo
+cd ~/.vim/colors
+curl -o molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+# actualizar configuracion de vim
+cat <<EOF > ~/.vimrc
+syntax on
+colorscheme desert
+set number
+set cursorline
+set history=1000
+EOF
+
 
 # mostrar la fecha del sistema
 date
