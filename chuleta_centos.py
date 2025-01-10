@@ -5,6 +5,16 @@ COMANDOS LINUX
 # Editar archivo de configuracion de vim 
 vim  ~/.vimrc
 
+# Enchular cat a batcat
+# Isntalacion
+sudo apt install bat
+# Link simbolico a bat
+sudo ln -s /usr/bin/batcat /usr/local/bin/bat
+# Elegir tema
+export BAT_THEME="Monokai Extended"
+echo "export BAT_THEME="Monokai Extended" >> ~/.bashrc 
+
+
 # Enchular vim 
 cat <<EOF > ~/.vimrc
 syntax on
